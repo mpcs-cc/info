@@ -14,10 +14,10 @@ We use a flipped classroom structure: each week you watch pre-recorded video lec
 - <a href="https://pollev.com/vasiliadis" target="_blank" rel="noopener">Question "parking lot"</a>: As you watch the videos capture your questions here for discussion during class. You can also upvote questions added by other students. It's all anonymous so please don't hold back!
 - <a href="https://drive.google.com/drive/folders/1pjw3gWKkbpVKr1V6GZDvY3WZwg55OYIX?usp=share_link" target="_blank" rel="noopener">Our shared Google Drive</a> contains lecture slides, assignment specifications, optional readings, and class exercises (you <i>must</i> be authenticated with your CNetID@uchicago.edu account to access these files).
 - We use <a href="https://docs.google.com/document/d/14ZYcarb8GX5pWQVM3cXUfv2GjTUvJkBXbC_RvJ7L55M/edit" target="_blank" rel="noopener">specifications grading</a> in this class. Please read this document carefully and ask me to elaborate on anything that's unclear.
-- We use [specifications grading](/course/specifications-grading) as a means to  (hopefully) reduce stress and allow you to focus on learning.
+- We use [specifications grading](specifications-grading.md) as a means to  (hopefully) reduce stress and allow you to focus on learning.
 
 ### Tools
 
-- We [work with Python](/course/working-with-python) exclusively.
+- We [work with Python](working-with-python.md) exclusively.
 - <a href="https://mpcs.signin.aws.amazon.com/console" target="_blank" rel="noopener">AWS console login</a> (Account alias: mcps)
 
