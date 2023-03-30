@@ -18,6 +18,6 @@ We use a flipped classroom structure: each week you watch pre-recorded video lec
 
 ### Tools
 
-- We [work with Python](working-with-python.md) exclusively.
+- We work exclusively with Python in this class. [Here are some pointers](working-with-python.md) on setting up a Python development environment.
 - <a href="https://mpcs.signin.aws.amazon.com/console" target="_blank" rel="noopener">AWS console login</a> (Account alias: mcps)
 
