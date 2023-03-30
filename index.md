@@ -2,8 +2,6 @@
 title: "Welcome to Cloud Computing"
 ---
 
-## Cloud Computing
-
 Welcome to Cloud Computing! This course provides an introduction to cloud computing with specific consideration for &ldquo;web-scale&rdquo; application development. More details are available on <a href="http://home.uchicago.edu/vas/#cloud" target="_blank" rel="noopener">my UChicago home page</a>.
 
 ### Logistics
