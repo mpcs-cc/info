@@ -9,10 +9,7 @@ In this class we will work in Python for all homework assignments and our capsto
 
 _Note: If you use Anaconda as your Python development environment, I strongly suggest you set it aside for this class and use Python directly._
 
-Below is a walkthrough of installing and using Python virtual environments on macOS (10.15 or later). If you’re not using macOS, please check out your respective Hitchhiker’s guide:
-
-Windows: http://docs.python-guide.org/en/latest/starting/install3/win/<br />
-Linux: http://docs.python-guide.org/en/latest/starting/install3/linux/
+Below is a walkthrough of installing and using Python virtual environments on macOS (10.15 or later). If you’re not using macOS, please check out the Hitchhiker’s guide for [Windows](http://docs.python-guide.org/en/latest/starting/install3/win/) or [Linux](http://docs.python-guide.org/en/latest/starting/install3/linux/).
 
 ### Using Python on Amazon EC2 instances
 
@@ -29,98 +26,114 @@ We first install the `pip` package manager and then use that to install other re
 ```
 Then check that we’re ready to brew:
 
-`$ brew doctor && brew update`
+`brew doctor && brew update`
 
 I prefer to override Apple’s default python and install a fresh copy:
 
-$ brew install python3
+`brew install python3`
 
-Depending on your operating system version, running python on the macOS command line may, by default, start a Python 2.x shell (the default for older MacOS versions), and pip will run the Python2 version of pip. You can ensure you’re running Python3 and the associated pip3, by forcing the system path to look for python in its new home.
+Depending on your operating system version, running python on the macOS command line may, by default, start an older version of Python. You can ensure you’re running your recently installed Python3 and associated pip3, by forcing the system path to look for python in its new home.
 
 Add the following to your ~/.zshrc file and source it (or open a new shell): 
 
-      export PATH=/usr/local/opt/python/libexec/bin:$PATH
+`export PATH=/usr/local/opt/python/libexec/bin:$PATH`
 
 Note that there are some differences in how the homebrew installer works if your Mac has Apple silicon, i.e., you’re running macOS 11 or later. In this case you may need to set the path as follows (and optionally, alias the python executable):
 
-      export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
-      alias python="python3"  # optional
-
-Now when you run python or pip you will be using version 3 by default.
+```bash
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+alias python="python3"  # optional
+```
+Now when you run `python` or `pip` you will be using the latest version by default.
 
 The brew command above also conveniently installed pip, so now we can install virtualenv and virtualenvwrapper thus:
 
-$ pip install --upgrade pip
-$ pip install --upgrade virtualenv
-$ pip install --upgrade virtualenvwrapper
-$ export WORKON_HOME=~/.virtualenvs
-$ source /usr/local/bin/virtualenvwrapper.sh
+```bash
+pip install --upgrade pip
+pip install --upgrade virtualenv
+pip install --upgrade virtualenvwrapper
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
 
-Note: The WORKON_HOME environment variable tells virtualenvwrapper to store your environments in .virtualenvs/ under your home directory; change this location as you see fit.
+Note: The `WORKON_HOME` environment variable tells virtualenvwrapper to store your environments in .virtualenvs/ under your home directory; change this location as you see fit.
 
 Again, for later macOS versions you may need slightly different commands above:
 
-$ export WORKON_HOME=~/.virtualenvs
-$ export VIRTUALENVWRAPPER_PYTHON=/opt/homebrew/bin/python3
-$ source /opt/homebrew/bin/virtualenvwrapper.sh
+```bash
+export WORKON_HOME=~/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/opt/homebrew/bin/python3
+source /opt/homebrew/bin/virtualenvwrapper.sh
+```
 
 Let’s test that everything is ready. Source a new shell and create a virtualenv called ‘test’:
 
-$ mkvirtualenv test
+```bash
+mkvirtualenv test
 created virtual environment CPython3.9.12.final.0-64 in 216ms
   creator CPython3Posix(dest=/Users/...
 ...
 (test) $ _
+```
 
 Once the virtualenv is created it will be automatically activated, and your shell prompt will show the name of the virtualenv in parentheses. Now, install the Python requests package as a test:
 
-(test) $ pip install --upgrade requests
+`(test) $ pip install --upgrade requests`
 
 Check the packages installed in the current virtualenv; You should see the requests package listed:
 
+```bash
 (test) $ lssitepackages
 __pycache__                        pip-22.2.2.virtualenv
 _distutils_hack                    pkg_resources
 _virtualenv.pth                    requests
 _virtualenv.py                     requests-2.28.1.dist-info
 ...
+```
 
 Start an interactive python shell and check that you can import the requests package:
 
+```bash
 (test) $ python
 Python 3.9.10 (main, Jan 15 2022, 11:40:53)
 ...
 >>> import requests
 >>> 
+```
 
 If all that works, you should be good to go. You can now deactivate and remove the test virtualenv thus:
 
+```bash
 (test) $ deactivate
-$ rmvirtualenv test
+rmvirtualenv test
 Removing test...
-$ _
+```
 
-Note: If you have multiple virtualenvs, you can activate the desired virtualenv using the workon command, e.g. workon mpcs would activate the “mpcs” virtualenv.
-
-
+Note: If you have multiple virtualenvs, you can activate the desired virtualenv using the workon command, e.g. `workon mpcs` would activate the “mpcs” virtualenv.
 
 To ensure new shells have the right environment add these commands to ~/.zshrc:
 
+```bash
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+```
 
 Or for later macOS versions:
 
+```bash
 export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/opt/homebrew/bin/python3
 source /opt/homebrew/bin/virtualenvwrapper.sh
-Kickin’ it up a Notch!
-Using the direnv package, you can configure your system to automatically activate the appropriate virtualenv when you cd into a directory, and deactivate it when you change to another directory. First, install the package:
+```
+
+## Kickin’ it up a Notch!
+
+Using the [direnv](https://direnv.net) package, you can configure your system to automatically activate the appropriate virtualenv when you cd into a directory, and deactivate it when you change to another directory. First, install the package:
 
 $ brew install direnv
 
 Then add the following to ~/.zshrc:
 
+```bash
 setopt PROMPT_SUBST
 show_virtual_env() {
   if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
@@ -129,29 +142,37 @@ show_virtual_env() {
 }
 PS1='$(show_virtual_env)'$PS1
 eval "$(direnv hook zsh)"
+```
 
-Create a file called .envrc in your source code directory, and add: 
+Create a file called `.envrc` in your source code directory, and add: 
 
+```bash
 source <path_to_env>/bin/activate
 unset PS1
+```
 
 For example, if your virtualenvs are stored in ~/.virtualenv and you have an environment called “mpcs” your would add:
 
+```bash
 source ~/.virtualenvs/mpcs/bin/activate
 unset PS1
+```
 
 Finally, in your source code directory run:
 
-$ direnv allow
-Now, when you cd into the directory with the .envrc file, it will automatically activate the virtualenv.
+`direnv allow`
 
-Of course, you can also still activate a virtualenv manually from anywhere in the filesystem by running workon <virtualenv_name>, for example:
+Now, when you cd into the directory with the `.envrc` file, it will automatically activate the virtualenv.
 
-$ workon mpcs #activate the mpcs virtual environment
-(mpcs) $ _
+Of course, you can also still activate a virtualenv manually from anywhere in the filesystem by running `workon <virtualenv_name>`, for example:
+
+`workon mpcs  #activate the mpcs virtual environment`
+
 Note: All of the above commands assume you’re using zsh, which is the default shell under Mac OS 10.15 (Catalina) and later. If you’re on a Mac OS version earlier than 10.15, the default shell is likely bash. The commands should work exactly the same way within a bash shell, but direnv will require a slightly different configuration. BUT, you really should upgrade to a more recent version since 10.14 is now past end-of-life, and hence potentially vulnerable.
-Stylin’ with Python
-If you’re new to Python, please spend a little time looking at the generally accepted best practice when it comes to coding style: https://www.python.org/dev/peps/pep-0008/
+
+## Stylin’ with Python
+
+If you’re new to Python, please spend a little time looking at the [generally accepted best practice](https://www.python.org/dev/peps/pep-0008/) when it comes to coding style.
 
 We may penalize you for sloppy code, and sloppy code will make us less inclined to give you an “O” ...reading other people’s clean code is hard enough ;-)
 
@@ -161,71 +182,68 @@ If you learn one Python thing, and one Python thing only from this class, let it
 
 You’re welcome! Seriously though, even if your homework code is correct you will be penalized for using tabs (or, even worse, mixing tabs and spaces) in your code. Most decent text editors have an option to convert tabs to spaces - set that option! And please indent by only 4 spaces. Yes, this may be nitpicking but clean source files are a very important aspect of professional software development so get used to that now. Again, failure to follow these simple requirements will result in an unsatisfactory grade. Don’t be a victim of styling laziness!
 
-And one more thing… beware of copy-pasting weirdness. Many of the issues you encounter will be the result of copying and pasting code/commands from one of these Google documents or a PDF file. These document formats embed a lot of hidden characters for formatting and often transform punctuation into non-standard characters, e.g., “smart” quotes like these! If you see weird errors and are sure that your code/command is correct, check again by typing it manually instead of copy-pasting.
+And one more thing... beware of copy-pasting weirdness. Many of the issues you encounter will be the result of copying and pasting code/commands from one of these Google documents or a PDF file. These document formats embed a lot of hidden characters for formatting and often transform punctuation into non-standard characters, e.g., “smart” quotes like these! If you see weird errors and are sure that your code/command is correct, check again by typing it manually instead of copy-pasting.
 
-Virtual Environment Setup for Anaconda Users (NOT recommended)
-For Anaconda users, this is a set of instructions created by a past student. It may be helpful if you decide you want to stick with conda instead of plain ol’ Python. Instead of using virtualenv, you can use the virtual environment that ships with conda. 
+## Virtual Environment Setup for Anaconda Users (NOT recommended)
 
-$ conda update -n base conda  # updates the base version of conda
-$ sudo conda update --all  # updates all packages (can take a while) 
+For Anaconda users, this is a set of instructions created by a past student. It may be helpful if you decide you want to stick with `conda` instead of plain ol’ Python. Instead of using virtualenv, you can use the virtual environment maanger that ships with conda. 
+
+```bash
+conda update -n base conda  # updates the base version of conda
+sudo conda update --all  # updates all packages (can take a while) 
+```
 
 To create a new environment:
 
-$ conda update --name mpcs
+`conda update --name mpcs`
  
 To activate the environment:
 
-$ source activate mpcs 
+`source activate mpcs`
 
 To deactivate the environment:
 
-$ source deactivate 
+`source deactivate`
 
 To install specific packages in that environment:
 
-$ conda install --name mpcs <package_name>
+`conda install --name mpcs <package_name>`
  
 Note the use of conda (instead of pip above) to install the required package. Where possible, if you are using anaconda, stick to using conda as your package manager. However, there are some packages that can only be installed via pip. In order to run pip inside the conda-created environment run the following:
 
-$ conda install -n mpcs pip # once inside the env, use pip normally
+`conda install -n mpcs pip # once inside the env, use pip normally`
 
 Remember to upgrade pip once inside your environment with:
  
-$ pip install --upgrade pip
+`pip install --upgrade pip`
 
 To list the packages in a particular environment (use when outside environment):
 
-$ conda list -n mpcs
-
+`conda list -n mpcs`
 
 To see packages installed in an environment, when inside that environment:
 
-$ conda list
+`conda list`
 
 To install a package using conda-forge in an environment:
 
-$ sudo conda install --name mpcs -c conda-forge <package_name>
+`sudo conda install --name mpcs -c conda-forge <package_name>`
 
 Note the use of sudo in the above line of code. Sometimes, when installing packages, either locally or in an environment from conda or conda-forge, you will get permission denied errors; you can use sudo to overcome this.
  
 To view all environments on your system:
 
-$ conda info --envs
+`conda info --envs`
 
 Alternatively, you may use:
 
-$ conda env list
+`conda env list`
 
 To remove an environment and all associated packages inside that environment:
 
-$ conda remove --name mpcs --all
-
-You will need to install a couple of packages for homework assignments; some of these cannot be installed using conda, so do the following (within your environment):
-
-$ pip install --upgrade jmespath-terminal
-$ sudo pip install awscli 
+`conda remove --name mpcs --all`
 
 To install Boto3 (when outside your environment):
 
-$ conda install -name mpcs boto3
+`conda install -name mpcs boto3`
 
