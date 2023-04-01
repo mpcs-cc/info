@@ -1,7 +1,9 @@
 ---
 layout: page
-title: "Remote File Editing with Sublime"
+title: "Remote File Editing"
 ---
+
+# Remote File Editing with Sublime
 
 ***Very , Very, VERY IMPORTANT WARNING: If you use VS Code as your editor/IDE you will run into major issues in this class that we cannot resolve. The issue is that VS Code does not behave nicely when editing files on a remote machine, which you will need to do in almost every assignment. For this reason, I very strongly recommend you use a different editor (like Sublime). See below for details.***
 
