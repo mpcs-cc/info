@@ -1,6 +1,5 @@
 ---
 layout: page
-title: "Specifications Grading"
 ---
 
 # Specifications Grading in MPCS 51083

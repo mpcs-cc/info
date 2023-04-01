@@ -1,6 +1,5 @@
 ---
 layout: page
-title: "Working with Python"
 ---
 
 # Working with Python in MPCS 51083
