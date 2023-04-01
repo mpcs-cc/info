@@ -1,3 +1,8 @@
+---
+layout: page
+title: "Remote File Editing with Sublime"
+---
+
 Very , Very, VERY IMPORTANT WARNING: If you use VS Code as your editor/IDE you will run into major issues in this class that we cannot resolve. The issue is that VS Code does not behave nicely when editing files on a remote machine, which you will need to do in almost every assignment. For this reason, I very strongly recommend you use a different editor (like Sublime). See  below for details.
 
 As the class progresses, you will find yourself doing most/all of your work directly on EC2 instances. Hence, a common request is to easily create an ssh/sftp connection between the text editor on your local machine and an EC2 instance, so you can edit files on the remote machine as if they were local. Depending on the editor you use, there may be a remote editing plug-in available that allows you to do just that.
