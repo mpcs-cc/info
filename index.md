@@ -15,6 +15,10 @@ We use a flipped classroom structure: each week you watch pre-recorded video lec
 - <a href="https://drive.google.com/drive/folders/1pjw3gWKkbpVKr1V6GZDvY3WZwg55OYIX?usp=share_link" target="_blank" rel="noopener">Our shared Google Drive</a> contains lecture slides, assignment specifications, optional readings, and class exercises (you <i>must</i> be authenticated with your CNetID@uchicago.edu account to access these files).
 - We use [specifications grading](specifications-grading.md) as a means to  (hopefully) reduce stress and allow you to focus on learning.
 
+### Discussion
+
+All online discussion happens in Ed Discussion (accessed via the Canvas site). Before posting a question make sure you [read this important information](asking-questions.md).
+
 ### Tools
 
 - We work exclusively with Python in this class. [Here are some pointers](working-with-python.md) on setting up a Python development environment.
