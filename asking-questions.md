@@ -1,6 +1,5 @@
 ---
 layout: page
-title: "Asking Questions"
 ---
 
 # Asking Questions in Cloud Computing
