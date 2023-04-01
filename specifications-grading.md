@@ -3,7 +3,7 @@ layout: page
 title: "Specifications Grading"
 ---
 
-## Specifications Grading in MPCS 51083
+# Specifications Grading in MPCS 51083
 
 We use specifications grading in this course in an effort to reduce the level of stress that you, the student, feel, and to (hopefully) motivate you to engage at whatever level you decide. Whether a “C+” is fine or you feel you must get an “A”, either is perfectly acceptable from our perspective, and we describe precisely what is required to get that grade—no more, no less. Here’s how it works:
 
