@@ -1,6 +1,5 @@
 ---
 layout: page
-title: "Remote File Editing"
 ---
 
 # Remote File Editing with Sublime
