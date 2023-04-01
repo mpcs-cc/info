@@ -1,9 +1,9 @@
 ---
 layout: page
-title: "Working with Python in MPCS 51083"
+title: "Working with Python"
 ---
 
-## Working with Python
+## Working with Python in MPCS 51083
 
 In this class we will work in Python for all homework assignments and our capstone project. While it is not required, I recommend that you use one of the many available Python tools (such as [pipenv](https://pipenv.pypa.io/en/latest/) or [virtualenv](https://virtualenv.pypa.io/en/latest/) and [virtualenvwrapper](https://pypi.org/project/virtualenvwrapper/)) to set up Python virtual environments. We’ll be experimenting a lot and the isolation provided by virtual environments helps minimize configuration conflicts/issues. In order to be most productive in class, please take time before the course starts to set up a working Python environment on your laptop. Coursework must be completed using Python 3.7 or later.
 
