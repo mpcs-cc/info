@@ -1,3 +1,8 @@
+---
+layout: page
+title: "Asking Questions"
+---
+
 # Asking Questions in Cloud Computing
 
 As you work through homework assignments, you will certainly have questions or encounter issues that you are not sure how to deal with. Ed Discussion provides a convenient mechanism to ask questions, but it can sometimes be challenging for us (instructor, TAs and fellow students) to provide assistance if you do not provide the right information when asking a question. Here are a few suggestions that may help you ask questions more effectively on Ed Discussion:
